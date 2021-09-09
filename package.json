@@ -1,0 +1,14 @@
+{
+  "name": "node-js-boilerplate",
+  "version": "1.0.0",
+  "description": "Node js BoilerPlate",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nauman Hassan",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
