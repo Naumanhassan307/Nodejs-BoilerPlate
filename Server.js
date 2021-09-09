@@ -1,7 +1,7 @@
 var express = require("express");
 var cors = require("cors");
 var bodyParser = require("body-parser");
-// var dbConnection = require("./config/Db");
+var dbConnection = require("./config/Db");
 // Routes List
 
 
@@ -14,13 +14,16 @@ app.use(
 app.use(bodyParser.json());
 app.use(cors());
 
-// dbConnection();
+dbConnection();
 
 app.get("/", function (req, res) {
   req.clientData;
   // logics main server
   res.send("Server is working ");
 });
+app.post("/signup", function(req, res){
+  console.log(req.body.stName);
+})
 
 
 // server port listener
