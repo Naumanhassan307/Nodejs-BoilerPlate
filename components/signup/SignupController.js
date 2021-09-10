@@ -1,3 +1,4 @@
+const { response } = require("express");
 const signupModel = require("./SignupModel")
 
 // In controller we define our API logics.
@@ -19,10 +20,20 @@ module.exports.signupUser = (req, res)=>{
           if (err) {
             res.send("err happen");
           }
-          res.send("User Registered successfully");
+          // res.send("User Registered successfully");
+          res.status(200).send({
+            result: success,
+            message: "User Registered successfully!",
+          });
         });
     } catch (error) {
-        console.log("Error in saving data", error);
+        // console.log("Error in saving data", error);
+        res
+          .status(400)
+          .send({
+            result: error.message,
+            message: "Oops! User not Registered successfully",
+          });
     }
     
 }
