@@ -1,23 +1,21 @@
-var express = require("express");
+const express = require("express");
 
 
 //  CORS is a node.js package for providing a Connect/Express middleware
-//  that can be used to enable CORS with various options.
-var cors = require("cors");
+//  that can be used to enable CORS with varstious options.
+const cors = require("cors");
 
 // BodyParser ensure the req.body is in json form data.
-var bodyParser = require("body-parser");
+const bodyParser = require("body-parser");
 
 
 // import the Database 
-var dbConnection = require("./config/Db");
+const dbConnection = require("./config/Db");
 
 
 
-// Routes List
 
-
-var app = express();
+const app = express();
 app.use(
   bodyParser.urlencoded({
     extended: true,
@@ -30,6 +28,12 @@ app.use(cors());
 // call the Database
 dbConnection();
 
+
+
+// Routes List
+
+const signupRouter = require("./components/signup/SignupRoute")
+
 // Define the Api's
 
 app.get("/", function (req, res) {
@@ -37,6 +41,9 @@ app.get("/", function (req, res) {
   // logics main server
   res.send("Server is working ");
 });
+
+app.post("/signup", signupRouter);
+
 
 
 
