@@ -5,6 +5,7 @@ const signupModel = require("./SignupModel")
 // Here is a controller (signupUser)
 
 module.exports.signupUser = (req, res)=>{
+  
     // Here we will pass our data to ensure the schema which we defined.
     const userCreate = new signupModel({
         email: req.body.email,
