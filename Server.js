@@ -33,6 +33,7 @@ dbConnection();
 // Routes List
 
 const signupRouter = require("./components/signup/SignupRoute")
+const signinRouter = require("./components/signin/SigninRoute")
 
 // Define the Api's
 
@@ -43,6 +44,7 @@ app.get("/", function (req, res) {
 });
 
 app.post("/signup", signupRouter);
+app.post("/signin", signinRouter);
 
 
 
