@@ -1,10 +1,20 @@
 // in SignupModael.js we will define our schema of mongo DB data .
 
-
 const mongoose = require("mongoose");
 const signupSchema = mongoose.Schema({
-  email: {type: String},
-  password: {type: String}
+  name: { type: String  },
+  email: { type: String  },
+  password: { type: String },
+  confirmPassword: { type: String},
+
+  mobile: {
+    type: Number,
+    
+  },
+  userStatus:{
+    type:String
+  }
+  
 });
-const signupModel = mongoose.model("signup", signupSchema);
+const signupModel = mongoose.model("userSignup", signupSchema);
 module.exports = signupModel;

@@ -1,5 +1,6 @@
 const express = require("express");
 
+const port = process.env.PORT || 5000;
 
 //  CORS is a node.js package for providing a Connect/Express middleware
 //  that can be used to enable CORS with varstious options.
@@ -35,6 +36,12 @@ dbConnection();
 const signupRouter = require("./components/signup/SignupRoute")
 const signinRouter = require("./components/signin/SigninRoute")
 
+
+const adminRouter = require("./components/admin/allUser/AllUserRoute")
+
+
+const userRouter = require("./components/user/UserRoutes")
+
 // Define the Api's
 
 app.get("/", function (req, res) {
@@ -42,15 +49,20 @@ app.get("/", function (req, res) {
   // logics main server
   res.send("Server is working ");
 });
+console.log("server.js");
+app.use("/auth", signupRouter);
+app.use("/auth", signinRouter);
 
-app.post("/signup", signupRouter);
-app.post("/signin", signinRouter);
+
+app.use("/admin", adminRouter);
+
+app.use("/user", userRouter);
 
 
 
 
 // server port listener
-app.listen("5000", (err) => {
+app.listen(port, (err) => {
   if (err) {
     console.log("something went wrong", error);
   } else {

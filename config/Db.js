@@ -3,7 +3,7 @@ var mongoose = require("mongoose")
 function dbConnection() {
   mongoose.connect(
     // Here you will paste your MongoDb String with your user name and password
-    `mongodb+srv://NaumanHassan:<Password>@cluster0.pvabz.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`,
+    `mongodb+srv://seatShare:Z0j2WpRJKR1KWVpH@cluster0.ahdre.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`,
     { useNewUrlParser: true,},
     function (err) {
       if (err) {
@@ -16,3 +16,6 @@ function dbConnection() {
 }
 
 module.exports = dbConnection;
+
+
+
